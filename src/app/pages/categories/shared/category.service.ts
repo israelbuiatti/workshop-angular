@@ -15,6 +15,13 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
+  getCategories() {
+    return this.http.get<any>('assets/categories.json')
+      .toPromise()
+      .then(res => <Category[]>res.data)
+      .then(data => { return data; });
+    }
+
 
   getAll(): Observable<Category[]> {
     return this.http.get(this.apiPath).pipe(

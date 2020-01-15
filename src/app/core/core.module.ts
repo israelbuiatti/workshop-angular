@@ -4,6 +4,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+
+
 
 
 
@@ -16,7 +20,8 @@ import { RouterModule } from '@angular/router';
     
     BrowserModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
   ],
   exports:[
     // shared modules
@@ -24,7 +29,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
 
     // shared components
-    NavbarComponent
+    NavbarComponent,
+    BrowserAnimationsModule
   ]
 })
 export class CoreModule { }

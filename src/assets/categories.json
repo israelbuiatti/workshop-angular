@@ -1,0 +1,8 @@
+
+{
+    "data": [
+        {"name": "Categoria1", "description": "Descrição Categoria1"},
+        {"name": "Categoria2", "description": "Descrição Categoria2"},
+        {"name": "Categoria3", "description": "Descrição Categoria3"}        
+    ]
+}

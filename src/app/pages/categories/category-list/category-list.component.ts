@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../shared/category.model';
+import { CategoryService } from '../shared/category.service';
+
 
 @Component({
   selector: 'app-category-list',
@@ -8,15 +10,18 @@ import { Category } from '../shared/category.model';
 })
 export class CategoryListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private categoryService: CategoryService) { }
 
   categories: Category[] = [];
 
   ngOnInit() {
 
-    this.categories.push(new Category(1, 'Categoria1', 'Descrição Categoria1'));
-    this.categories.push(new Category(1, 'Categoria2', 'Descrição Categoria2'));
-    this.categories.push(new Category(1, 'Categoria3', 'Descrição Categoria3'));
+    // this.categories.push(new Category(1, 'Categoria1', 'Descrição Categoria1'));
+    // this.categories.push(new Category(1, 'Categoria2', 'Descrição Categoria2'));
+    // this.categories.push(new Category(1, 'Categoria3', 'Descrição Categoria3'));
+
+    this.categoryService.getCategories().
+      then(categories => this.categories = categories);
 
 
   }
