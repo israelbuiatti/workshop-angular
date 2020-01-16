@@ -1,0 +1,43 @@
+- Criando o projeto
+- Angular CLI ng g c ... | ng g m ...
+- Estrutura do projeto
+- Criando Componente
+	- Template inline  --inline-template
+	- Template html
+- Directives Atributos e estrutura
+- Rotas
+- Lazy Load
+- Ciclo de vida
+- Requisições
+- Comunicação entre componentes
+- Services
+- PrimeNg
+
+
+
+
+ng new --routing --skip-tests
+npm i bootstrap jquery --save
+npm i angular-imask --save
+npm i currency-formatter --save
+npm i moment --save
+npm i toastr -- save
+npm i primeng --save
+npm i primeicons --save
+npm i chart.js --save
+
+angular.json - incluir bootstrap js e css
+
+ng g m pages/home --routing
+ng g c pages/home/home
+
+ng g m pages/categories --routing
+ng g c pages/categories/category-list
+ng g c pages/categories/category-form
+
+ng g m pages/about --routing
+ng g c pages/about/about
+
+ng g c core/navbar
+ng g m core -> importar router
+
