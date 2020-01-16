@@ -6,6 +6,9 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 
 import {TableModule} from 'primeng/table';
+import {PaginatorModule} from 'primeng/paginator';
+
+
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
@@ -15,6 +18,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     CategoriesRoutingModule,
     TableModule,
+    PaginatorModule,
     SharedModule
   ]
 })

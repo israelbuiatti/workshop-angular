@@ -22,7 +22,7 @@ export class CategoryListComponent implements OnInit {
 
     this.buscar1(1);
     this.buscar2(1);
-    this.buscar3(1);
+    this.buscar3({page: 0});
 
   }
 
@@ -54,14 +54,25 @@ export class CategoryListComponent implements OnInit {
 
   }
 
-  buscar3(page) {
+  buscar3(event) {
 
-    console.log("pagina3", page);
+    // let page;
+    // if (event == null) {
+    //   page = 1;
+    // }
+    // else {
+    //   page = event.page;
+    //   page++;
+    // }
+
+    event.page++;
+
+    console.log("pagina3", event.page);
 
     this.categoryService.getCategories().then(categories => {
 
       this.categories3 = categories.filter((category => {
-        return (category.id >= ((this.rows*(page-1))+1) && category.id <= (page*this.rows))
+        return (category.id >= ((this.rows*(event.page-1))+1) && category.id <= (event.page*this.rows))
       }))
 
     });

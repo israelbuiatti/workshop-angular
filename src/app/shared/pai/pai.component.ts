@@ -10,16 +10,16 @@ export class PaiComponent implements OnInit {
 
   constructor(private familiaService: FamiliaService) { }
 
-  // remetente;
-  // mensagem;
+  remetente:string;
+  mensagem:string;
 
   ngOnInit() {
-    // this.familiaService.emitirMensagem.subscribe(res => {
+    this.familiaService.emitirMensagem.subscribe(res => {
 
-    //   this.remetente = res.remetente;
-    //   this.mensagem = res.mensagem;
+      this.remetente = res.remetente;
+      this.mensagem = res.mensagem;
 
-    // })
+    })
   }
 
   enviarMensagem(){

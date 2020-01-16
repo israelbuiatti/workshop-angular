@@ -10,6 +10,7 @@ export class FamiliaService {
     constructor() { }
 
     enviarMensagem(remetente, mensagem) {
+      
         this.emitirMensagem.emit({"remetente":remetente, "mensagem":mensagem});
     }
 
