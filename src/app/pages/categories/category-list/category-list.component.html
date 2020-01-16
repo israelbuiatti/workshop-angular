@@ -1,12 +1,12 @@
 <table class="table table-hover">
     <thead>
       <tr class="bg-primary text-light">
-        <th>Categoria</th>
+        <th>Categoria 1</th>
         <th>Ações</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let category of categories">
+      <tr *ngFor="let category of categories1">
         <td>
           <strong>{{category.name}}</strong><br>
           <small>{{category.description}}</small>
@@ -18,14 +18,40 @@
       </tr>
     </tbody>
   </table>
+  <app-paginator [rows]="5" [totalRecords]="30" (paginar)="buscar1($event)"></app-paginator>
 
 
   <hr>
 
-  <p-table [value]="categories">
+  <table class="table table-hover">
+    <thead>
+      <tr class="bg-primary text-light">
+        <th>Categoria 2</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories2">
+        <td>
+          <strong>{{category.name}}</strong><br>
+          <small>{{category.description}}</small>
+        </td>
+        <td>
+          <a [routerLink]="[category.id, 'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
+          <button (click)="deleteCategory(category)" class="btn btn-outline-danger btn-sm">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-paginator [rows]="5" [totalRecords]="30" (paginar)="buscar2($event)"></app-paginator>
+
+
+  <hr>
+
+  <p-table [value]="categories3">
     <ng-template pTemplate="header">
         <tr>
-            <th>Categoria</th>
+            <th>Categoria 3</th>
             <th>Ação</th>
         </tr>
     </ng-template>

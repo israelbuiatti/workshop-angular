@@ -11,58 +11,25 @@ import { Category } from "./category.model";
 })
 export class CategoryService {
 
-  private apiPath: string = "api/categories";
+  private apiPath: string = "assets/categories.json";
 
   constructor(private http: HttpClient) { }
 
   getCategories() {
-    return this.http.get<any>('assets/categories.json')
+    return this.http.get<any>(this.apiPath)
       .toPromise()
-      .then(res => <Category[]>res.data)
+      .then(res => <Category[]>res)
       .then(data => { return data; });
     }
 
 
   getAll(): Observable<Category[]> {
     return this.http.get(this.apiPath).pipe(
-      catchError(this.handleError),
-      map(this.jsonDataToCategories)
+      map(this.jsonDataToCategories),
+      catchError(this.handleError)
     )
   }
 
-  getById(id: number): Observable<Category> {
-    const url = `${this.apiPath}/${id}`;
-
-    return this.http.get(url).pipe(
-      catchError(this.handleError),
-      map(this.jsonDataToCategory)
-    )
-  }
-
-  create(category: Category): Observable<Category> {
-    return this.http.post(this.apiPath, category).pipe(
-      catchError(this.handleError),
-      map(this.jsonDataToCategory)
-    )
-  }
-
-  update(category: Category): Observable<Category> {
-    const url = `${this.apiPath}/${category.id}`;
-
-    return this.http.put(url, category).pipe(
-      catchError(this.handleError),
-      map(() => category)
-    )
-  }
-
-  delete(id: number): Observable<any> {
-    const url = `${this.apiPath}/${id}`;
-
-    return this.http.delete(url).pipe(
-      catchError(this.handleError),
-      map(() => null)
-    )
-  }
 
 
 

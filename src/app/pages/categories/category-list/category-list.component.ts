@@ -12,17 +12,59 @@ export class CategoryListComponent implements OnInit {
 
   constructor(private categoryService: CategoryService) { }
 
-  categories: Category[] = [];
+  categories1: Category[] = [];
+  categories2: Category[] = [];
+  categories3: Category[] = [];
+  
+  rows = 5;
 
   ngOnInit() {
 
-    // this.categories.push(new Category(1, 'Categoria1', 'Descrição Categoria1'));
-    // this.categories.push(new Category(1, 'Categoria2', 'Descrição Categoria2'));
-    // this.categories.push(new Category(1, 'Categoria3', 'Descrição Categoria3'));
+    this.buscar1(1);
+    this.buscar2(1);
+    this.buscar3(1);
 
-    this.categoryService.getCategories().
-      then(categories => this.categories = categories);
+  }
 
+  buscar1(page) {
+
+    console.log("pagina1", page);
+
+    this.categoryService.getAll().subscribe(categories => {
+
+      this.categories1 = categories.filter((category => {
+        return (category.id >= ((this.rows*(page-1))+1) && category.id <= (page*this.rows))
+      }))
+
+    });
+
+  }
+
+  buscar2(page) {
+
+    console.log("pagina2", page);
+
+    this.categoryService.getCategories().then(categories => {
+
+      this.categories2 = categories.filter((category => {
+        return (category.id >= ((this.rows*(page-1))+1) && category.id <= (page*this.rows))
+      }))
+
+    });
+
+  }
+
+  buscar3(page) {
+
+    console.log("pagina3", page);
+
+    this.categoryService.getCategories().then(categories => {
+
+      this.categories3 = categories.filter((category => {
+        return (category.id >= ((this.rows*(page-1))+1) && category.id <= (page*this.rows))
+      }))
+
+    });
 
   }
 

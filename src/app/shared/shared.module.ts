@@ -5,6 +5,10 @@ import { WsInlineComponent } from './components/ws-inline/ws-inline.component';
 import { PersonComponent } from './components/person/person.component';
 import { FillDirective } from './directives/fill.directive';
 import { CicloComponent } from './ciclo/ciclo.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { PaiComponent } from './pai/pai.component';
+import { FilhoComponent } from './filho/filho.component';
+import { NetoComponent } from './neto/neto.component';
 
 
 
@@ -15,6 +19,10 @@ import { CicloComponent } from './ciclo/ciclo.component';
     PersonComponent,
     FillDirective,
     CicloComponent,
+    PaginatorComponent,
+    PaiComponent,
+    FilhoComponent,
+    NetoComponent,
   ],
   imports: [
     CommonModule
@@ -24,7 +32,11 @@ import { CicloComponent } from './ciclo/ciclo.component';
     WsInlineComponent,
     PersonComponent,
     FillDirective,
-    CicloComponent
+    CicloComponent,
+    PaginatorComponent,
+    PaiComponent,
+    FilhoComponent,
+    NetoComponent,
   ]
 })
 export class SharedModule { }
